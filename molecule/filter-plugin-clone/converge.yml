@@ -1,0 +1,12 @@
+---
+- name: Converge
+  hosts: all
+  gather_facts: false
+  collections:
+    - confluent.platform
+  roles:
+    - role: variables
+  tasks:
+    - name: Assert that custom filter plugin works
+      assert:
+        that: mds_bootstrap_server_urls == 'http://localhost:8090'
