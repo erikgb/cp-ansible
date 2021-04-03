@@ -9,8 +9,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        with:
+          path: ansible_collections/confluent/platform
       - name: Run Molecule Test
         run: molecule converge -s filter-plugin-clone
+        working-directory: ansible_collections/confluent/platform
   molecule-collection:
     name: Molecule Collection
     runs-on: ubuntu-latest
