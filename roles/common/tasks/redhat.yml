@@ -91,7 +91,7 @@
 - name: Upgrade pip
   ansible.builtin.pip:
     name: pip
-    extra_args: --upgrade
+    state: latest
   tags: package
 
 - name: Install pip packages
